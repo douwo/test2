@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>医生排班</title>
+		<link rel="stylesheet" type="text/css" href="css/animated.css" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #eee;
+			}
+			
+			* {
+				/*color: #333;*/
+				font-size: 16px;
+			}
+			
+			.header {
+				height: 180px;
+				width: 100%;
+				background: linear-gradient(to right, #E28F1B, #E16205);
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+			}
+			
+			.header img {
+				height: 110px;
+				border-radius: 100%;
+				margin: 5px 0;
+			}
+			
+			.header h3 {
+				margin: 0 auto;
+				color: white;
+				font-size: 22px;
+				font-weight: 300;
+			}
+			
+			.three {
+				padding: 14px 0;
+				margin: 0px 0 10px 0;
+				background-color: white;
+			}
+			
+			.mui-col-xs-4 {
+				text-align: center;
+				box-sizing: border-box;
+				border-right: 1px solid #bbb;
+				color: #999;
+			}
+			
+			.mui-col-xs-4>h4 {
+				font-weight: 400;
+				font-size: 20px;
+				color: #333;
+			}
+			
+			.mui-table-view-cell {
+				height: 56px;
+				line-height: 36px;
+			}
+			
+			.money * {
+				font-size: 18px;
+			}
+			
+			.money span {
+				float: right;
+				color: orange;
+			}
+			
+			.timeTitle {
+				line-height: 38px;
+				width: 100%;
+				color: #666;
+				font-size: 16px;
+			}
+			
+			.timeTitle>div {
+				line-height: 30px;
+				margin-left: 10px;
+			}
+			
+			.sevenDay {
+				background-color: white;
+				padding: 1px 0;
+			}
+			
+			.sevenDay>ul {
+				display: flex;
+				list-style: none;
+				padding: 0 5px;
+			}
+			
+			.sevenDay li {
+				height: 14vw;
+				text-align: center;
+				flex-grow: 1;
+				border-radius: 100%;
+				padding: 2px;
+			}
+			
+			.sevenDay li.active {
+				background: linear-gradient(to right, #E28F1B, #E16205);
+				color: white;
+			}
+			
+			.sevenDay li {
+				transition: all .3s;
+			}
+			
+			.sevenDay li>h4 {
+				font-size: 16px;
+				font-weight: 400;
+			}
+			
+			.sevenDay li>span {
+				font-size: 14px;
+			}
+			
+			.project {
+				transition: all 0.1s;
+			}
+			
+			.time {
+				height: 40px;
+				line-height: 38px;
+				color: #666;
+				border: 1px solid #666;
+				background: transparent;
+				border-radius: 18px;
+				text-align: center;
+				font-size: 18px;
+				margin: 12px 8px 0px 8px;
+			}
+			
+			.time.active {
+				color: orange;
+				border: 1px solid orange;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="header">
+			<div style="margin: 0 auto;">
+				<img src="images/xu.jpg" />
+			</div>
+			<h3>徐晓薇</h3>
+		</div>
+		<div class="three mui-row">
+			<div class="mui-col-xs-4">
+				<h4>肿瘤科</h4> 所属科室
+			</div>
+			<div class="mui-col-xs-4">
+				<h4>主任医师</h4> 医生职称
+			</div>
+			<div class="mui-col-xs-4">
+				<h4>门诊二楼</h4> 就诊地址
+			</div>
+		</div>
+		<div class="money">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					挂号金额
+					<span>8元</span>
+				</li>
+			</ul>
+		</div>
+		<div class="timeTitle">
+			<div class="mui-icon mui-icon-info"></div>
+			请选择预约时间
+		</div>
+		<div class="sevenDay">
+			<ul>
+				<li class="project active">
+					<h4>今日</h4>
+					<span>11.18</span>
+				</li>
+				<li class="project">
+					<h4>周一</h4>
+					<span>11.19</span>
+				</li>
+				<li class="project">
+					<h4>周二</h4>
+					<span>11.20</span>
+				</li>
+				<li class="project">
+					<h4>周三</h4>
+					<span>11.21</span>
+				</li>
+				<li class="project">
+					<h4>周四</h4>
+					<span>11.22</span>
+				</li>
+				<li class="project">
+					<h4>周五</h4>
+					<span>11.23</span>
+				</li>
+				<li class="project">
+					<h4>周六</h4>
+					<span>11.24</span>
+				</li>
+			</ul>
+		</div>
+		<div class="timeLists mui-row">
+			<div class=" mui-col-xs-3">
+				<div class="time">08:00</div>
+			</div>
+			<div class=" mui-col-xs-3">
+				<div class="time">10:00</div>
+			</div>
+			<div class=" mui-col-xs-3">
+				<div class="time">14:00</div>
+			</div>
+			<div class=" mui-col-xs-3">
+				<div class="time">16:00</div>
+			</div>
+		</div>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			window.onload = function() {
+				$(".project>.today").hide();
+			};
+			$(".project").click(function() {
+				$(".project").removeClass("active");
+				$(this).addClass("active");
+			})
+			$(".time").click(function() {
+				$(".time").removeClass("active");
+				$(this).addClass("active");
+			})
+		</script>
+	</body>
+
+</html>
