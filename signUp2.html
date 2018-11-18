@@ -7,7 +7,7 @@
 		<title>绑定微信</title>
 		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/animated.css" />
+		<link rel="stylesheet" type="text/css" href="css/animated.css"/>
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 		</script>
@@ -44,15 +44,11 @@
 				color: #9f9f9f;
 				font-size: 14px;
 			}
-			
 			.mui-checkbox input[type=checkbox]:before,
 			.mui-radio input[type=radio]:before {
 				font-size: 20px;
 				position: relative;
 				top: 4px;
-			}
-			.mui-checkbox input[type=checkbox], .mui-radio input[type=radio]{
-				top: 10px;
 			}
 			
 			.mui-input-group>.mui-input-row {
@@ -61,11 +57,9 @@
 			
 			.mui-input-row label {
 				width: 25%;
-				padding: 16px 15px;
 			}
 			
 			.mui-input-row label~input {
-				height: 48px;
 				width: 75%;
 			}
 			
@@ -89,10 +83,6 @@
 			.mui-radio input[type=radio]:checked:before {
 				color: orange;
 			}
-			.mui-input-group .mui-input-row{
-				height: 45px;
-				line-height: 45px;
-			}
 			/* 以下用户自定义样式 */
 			
 			.logo {
@@ -103,12 +93,6 @@
 				justify-content: center;
 				align-items: center;
 			}
-			.logo>div{
-				height: 100px;width: 130px;
-				background: url(img/logo.png);
-				background-position: center;
-				background-size: cover;
-			}
 			
 			.last-input:after {
 				background-color: transparent !important
@@ -118,9 +102,10 @@
 				margin-top: 6vh;
 				width: 85vw;
 				line-height: 34px;
+				height: auto;
 				color: #fff;
 				border-radius: 24px;
-				background: linear-gradient(to right, #FF9F19, #FE6B00);
+				background: linear-gradient(to right ,#FF9F19,#FE6B00);
 				font-size: 18px;
 			}
 		</style>
@@ -164,7 +149,7 @@
 	<script type="text/javascript">
 		function goNextPage(x) {
 			if(x == 1) {
-				let _body = document.getElementsByTagName('body')[0];
+				let _body =document.getElementsByTagName('body')[0];
 				_body.classList.add("fadeOutDown");
 				setTimeout(function() {
 					_body.classList.remove("fadeOutDown");
