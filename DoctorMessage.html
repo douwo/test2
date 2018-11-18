@@ -96,23 +96,25 @@
 				display: flex;
 				list-style: none;
 				padding: 0 5px;
+				
 			}
 			
 			.sevenDay li {
+				display: flex;
 				height: 14vw;
 				text-align: center;
 				flex-grow: 1;
 				border-radius: 100%;
 				padding: 2px;
+				transition: all .3s;
+				justify-content: center;
+				align-items: center;
+				 flex-direction:column
 			}
 			
 			.sevenDay li.active {
 				background: linear-gradient(to right, #E28F1B, #E16205);
 				color: white;
-			}
-			
-			.sevenDay li {
-				transition: all .3s;
 			}
 			
 			.sevenDay li>h4 {
