@@ -90,13 +90,13 @@
 			.sevenDay {
 				background-color: white;
 				padding: 1px 0;
+				border-bottom: 1px solid #ccc;
 			}
 			
 			.sevenDay>ul {
 				display: flex;
 				list-style: none;
 				padding: 0 5px;
-				
 			}
 			
 			.sevenDay li {
@@ -109,7 +109,7 @@
 				transition: all .3s;
 				justify-content: center;
 				align-items: center;
-				 flex-direction:column
+				flex-direction: column
 			}
 			
 			.sevenDay li.active {
@@ -146,6 +146,28 @@
 				color: orange;
 				border: 1px solid orange;
 			}
+			.footer{
+				position: fixed;
+				display: flex;
+				align-items: center;
+				bottom: 0;
+				height: 60px;
+				width: 100%;
+				background-color: white;
+			}
+			.footer>.OkButton {
+				margin:30px 0;
+				margin-left: 8%;
+				width: 84%;
+				height: 45px;
+				background: linear-gradient(to right, #EF9619, #FE6B00);
+				border-radius: 22px;
+				font-size: 16px;
+				color: white;
+				border: 0;
+				outline: 0;
+				box-shadow: 0 2px 5px -3px #666;
+			}
 		</style>
 	</head>
 
@@ -171,7 +193,7 @@
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					挂号金额
-					<span>8元</span>
+					<span>￥8.00</span>
 				</li>
 			</ul>
 		</div>
@@ -225,6 +247,11 @@
 				<div class="time">16:00</div>
 			</div>
 		</div>
+		<div class="footer">
+			<button class="OkButton">
+			立即预约
+		</button>
+		</div>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<script type="text/javascript">
 			window.onload = function() {
@@ -237,6 +264,9 @@
 			$(".time").click(function() {
 				$(".time").removeClass("active");
 				$(this).addClass("active");
+			})
+			$(".OkButton").click(function(){
+				window.location.href = "RegisteredMsg.html"
 			})
 		</script>
 	</body>

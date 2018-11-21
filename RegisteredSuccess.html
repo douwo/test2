@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>预约成功</title>
+		<link rel="stylesheet" type="text/css" href="css/animated.css" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #F6F6F6;
+				width: 100%;
+			}
+			
+			* {
+				color: #666;
+				font-size: 16px;
+			}
+			/* 分割线重置 */
+			
+			.mui-table-view-cell:after {
+				left: 15px;
+				right: 15px;
+			}
+			
+			.mui-table-view:before,
+			.mui-table-view:after {
+				background-color: transparent
+			}
+			
+			.user-right {
+				float: right;
+			}
+			
+			.mui-table-view>li {
+				height: 54px;
+				line-height: 34px;
+			}
+			
+			.mui-table-view>.mui-table-view-cell>img {
+				position: relative;
+				top: 5px;
+				height: 20px;
+				margin-right: 5px;
+			}
+			
+			ul>li>span:first-child {
+				color: #333;
+				font-weight: 400;
+			}
+			
+			.SuccessLogo{
+				height: 140px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.OkButton{
+				margin:30px 0;
+				margin-left: 8%;
+				width: 84%;
+				height: 45px;
+				background: linear-gradient(to right,#EF9619,#FE6B00);
+				border-radius: 22px;
+				font-size: 16px;
+				color: white;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="SuccessLogo">
+			<img src="img/SuccessLogo.jpg" height="100"/>
+		</div>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<span>医院</span>
+				<span class="user-right ">重庆(中美)海吉亚肿瘤医院</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<span>科室</span>
+				<span class="user-right ">肿瘤科</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<span>医生</span>
+				<span class="user-right ">徐晓薇</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<span>患者信息</span>
+				<span class="user-right ">洋芋</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<span>就诊时间</span>
+				<span class="user-right ">
+					2018-11-20&nbsp;9:00
+				</span>
+			</li>
+			<li class="mui-table-view-cell">
+				<span>挂号金额</span>
+				<span class="user-right">￥8.00</span>
+			</li>
+		</ul>
+		<button class="OkButton">
+			完成
+		</button>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(".OkButton").click(function() {
+			window.location.href="./main.html"
+		});
+	</script>
+
+</html>
