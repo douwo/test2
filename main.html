@@ -36,11 +36,13 @@
 			}
 			
 			.mui-slider-item:nth-child(1) {
-				background-color: #007AFF;
+				background: url(img/banner1.jpg);
+				background-size: cover;
 			}
 			
 			.mui-slider-item:nth-child(2) {
-				background-color: #2AC845;
+				background: url(img/banner2.jpg);
+				background-size: cover;
 			}
 			
 			.mui-content {
@@ -84,21 +86,30 @@
 				justify-content: center;
 				align-items: center;
 			}
-			
 			.img1 {
+				background: url(img/1.png);
+			}
+			.img2{
+				background: url(img/2.png);
+			}
+			.img3{
+				background: url(img/3.png);
+			}
+			.button-img{
 				height: 8vh;
 				width: 8vh;
-				background: #9f9f9f;
 				margin: 0 auto;
 				border-radius: 100%;
 				margin-bottom: 5px;
+				background-position: center;
+				background-size: cover;
 			}
-			
 			.user-logo {
 				z-index: 999;
 				height: 15vh;
 				width: 15vh;
-				background-color: #9f9f9f;
+				background: url(images/xu.jpg);
+				background-size: cover;
 				border-radius: 100%;
 				position: absolute;
 				top: 10.5vh;
@@ -133,11 +144,9 @@
 			<div class="mui-slider-group">
 				<!--第一个内容区容器-->
 				<div class="mui-slider-item">
-					banner1
 				</div>
 				<!--第二个内容区-->
 				<div class="mui-slider-item">
-					banner2
 				</div>
 			</div>
 		</div>
@@ -150,17 +159,17 @@
 			<div class="mui-content">
 				<div class="mui-row">
 					<div id="mzgh" class="mui-col-sm-4 mui-col-xs-4">
-						<div class="img1">
+						<div class="img1 button-img">
 						</div>
 						门诊挂号
 					</div>
 					<div class="mui-col-sm-4 mui-col-xs-4">
-						<div class="img1">
+						<div class="img2 button-img">
 						</div>
 						挂号信息
 					</div>
 					<div class="mui-col-sm-4 mui-col-xs-4">
-						<div class="img1">
+						<div class="img3 button-img">
 						</div>
 						关于我们
 					</div>
