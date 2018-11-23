@@ -7,7 +7,10 @@
 		<title>医生排班</title>
 		<link rel="stylesheet" type="text/css" href="css/animated.css" />
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/a-reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/a-reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.dtpicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css" />
 		<style type="text/css">
 			html,
 			body {
@@ -142,14 +145,17 @@
 				font-size: 18px;
 				margin: 12px 8px 0px 8px;
 			}
-			.timeLists{
+			
+			.timeLists {
 				min-height: 200px;
 			}
+			
 			.time.active {
 				color: orange;
 				border: 1px solid orange;
 			}
-			.footer{
+			
+			.footer {
 				position: fixed;
 				display: flex;
 				align-items: center;
@@ -158,8 +164,9 @@
 				width: 100%;
 				background-color: white;
 			}
+			
 			.footer>.OkButton {
-				margin:30px 0;
+				margin: 30px 0;
 				margin-left: 8%;
 				width: 84%;
 				height: 45px;
@@ -170,6 +177,52 @@
 				border: 0;
 				outline: 0;
 				box-shadow: 0 2px 5px -3px #666;
+			}
+			
+			.mui-btn-blue,
+			.mui-btn-primary,
+			input[type=submit] {
+				color: orange;
+				border: 1px solid orange;
+				background-color: transparent;
+			}
+			
+			.mui-checkbox.mui-left label {
+				padding-left: 40px;
+			}
+			
+			.mui-checkbox input[type=checkbox] {
+				top: 7px;
+				left: 10px !important;
+			}
+			
+			.mui-checkbox input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				font-size: 24px;
+			}
+			
+			.mui-checkbox input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				color: orange;
+			}
+			
+			.tiaoyue {
+				position: absolute;
+				top: calc(100%);
+				height: 100%;
+				width: 100%;
+				background-color: rgba(0, 0, 0, 0.4);
+				transition: all .5s !important;
+				display: none;
+			}
+			
+			.tiaoyue-content {
+				position: absolute;
+				bottom: -280px;
+				height: 280px;
+				width: 100%;
+				background-color: #fff;
+				transition: all .5s !important;
 			}
 		</style>
 	</head>
@@ -202,46 +255,17 @@
 		</div>
 		<div class="timeTitle">
 			<div class="mui-icon mui-icon-info"></div>
-			请选择预约时间
+			时间
 		</div>
-		<div class="sevenDay">
-			<ul>
-				<li class="project active" >
-					<h4>今日</h4>
-					<span>11.18</span>
-				</li>
-				<li class="project">
-					<h4>周一</h4>
-					<span>11.19</span>
-				</li>
-				<li class="project">
-					<h4>周二</h4>
-					<span>11.20</span>
-				</li>
-				<li class="project">
-					<h4>周三</h4>
-					<span>11.21</span>
-				</li>
-				<li class="project">
-					<h4>周四</h4>
-					<span>11.22</span>
-				</li>
-				<li class="project">
-					<h4>周五</h4>
-					<span>11.23</span>
-				</li>
-				<li class="project">
-					<h4>周六</h4>
-					<span>11.24</span>
+		<div class="timeLists">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right birth_option" style="color: #666;">请选择预约时间</a>
 				</li>
 			</ul>
-		</div>
-		<div class="timeLists mui-row">
-			<div class=" mui-col-xs-12">
-				<div class="time">上午</div>
-			</div>
-			<div class=" mui-col-xs-12">
-				<div class="time">下午</div>
+			<div class="mui-input-row mui-checkbox mui-left">
+				<label>我已经阅读并同意<span class="open" style="color: dodgerblue;">《预约须知条款》</span></label>
+				<input name="checkbox1" value="Item 1" type="checkbox" onclick="openTiaoyue()">
 			</div>
 		</div>
 		<div class="footer">
@@ -249,7 +273,23 @@
 			立即预约
 		</button>
 		</div>
+		<div class="tiaoyue">
+			<div class="tiaoyue-content">
+				<h4 style="color: #999;text-align: center;padding: 10px 0;font-weight: 400;position: relative;">预约条款
+				<span class="mui-icon mui-icon-closeempty close" style="position: absolute;float: right;bottom: 2px;right: 4px;font-size: 34px;" onclick="closeTiaoyue()"></span>
+				</h4>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">一、内容</li>
+					<li class="mui-table-view-cell">二、内容</li>
+					<li class="mui-table-view-cell">三、内容</li>
+				</ul>
+			</div>
+		</div>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.dtpicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.poppicker.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/mui.picker.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			window.onload = function() {
 				$(".project>.today").hide();
@@ -262,17 +302,34 @@
 				$(".time").removeClass("active");
 				$(this).addClass("active");
 			})
-			$(".OkButton").click(function(){
+			$(".OkButton").click(function() {
 				window.location.href = "RegisteredMsg.html"
 			})
-//			$(".date1").click(function(){
-//				var _Id = $(this).attr("id");
-//				alert(_Id);
-//				var _date = document.getElementById("'"+ _Id +"'").innerText;
-//				var month = _date.substring(0,2);
-//				var day = _date.substring(3,5);
-//				alert("月份："+month+"，日："+ day);
-//			})
+
+			$('.birth_option').click(function() {
+				var dtpicker = new mui.DtPicker({
+					type: "date", //设置日历初始视图模式
+					beginDate: new Date(2018, 10, 18), //设置开始日期
+					endDate: new Date(2018, 10, 24) //设置开始日期
+				});
+				dtpicker.show(function(selectItems) {
+					$(".birth_option").text(selectItems.text)
+					/*改变按钮值*/
+				})
+			})
+			function openTiaoyue(){
+				$(".tiaoyue").css("display","block");
+				$(".tiaoyue").css("top","0");
+				setTimeout(function(){
+					$(".tiaoyue-content").css("bottom","0");
+				})
+			}
+			function closeTiaoyue(){
+				$(".tiaoyue-content").css("bottom","-280px");
+				setTimeout(function(){
+					$(".tiaoyue").css("display","none");
+				},400)
+			}
 		</script>
 	</body>
 
