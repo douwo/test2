@@ -96,11 +96,31 @@
 				font-size: 14px;
 				padding: 0 10px;
 			}
+			.user-img{
+				height: 60px;
+				width: 60px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background: url(img/img01.png);
+				background-size: cover;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.user-img>div{
+				text-align: center;
+				padding-left: 16px;
+				padding-bottom: 0px;
+				transform: rotate(-45deg);
+				color: #fe7505;
+				font-size: 14px;
+				font-weight: 200;
+			}
 		</style>
 	</head>
 
 	<body>
-		一个
 		<div class="doctor-card mui-col-sm-12 mui-col-xs-12">
 			<div style="width: 100%;display: block;">
 				<div class="doctor-msg">
@@ -148,7 +168,43 @@
 						</ul>
 					</div>
 				</div>
-				<button class="YyButton">取消预约</button>
+				<div class="user-img">
+					<div>已取消</div>
+				</div>
+			</div>
+			<div class="message mui-row">
+				<div class="mui-col-xs-7">
+					预约患者：洋芋
+				</div>
+				<div class="mui-col-xs-5">
+					患者性别：男
+				</div>
+				<div class="mui-col-xs-7">
+					就诊时间：2018-11-21  上午
+				</div>
+				<div class="mui-col-xs-5">
+					挂号金额：￥8.00
+				</div>
+			</div>
+		</div>
+		<div class="doctor-card mui-col-sm-12 mui-col-xs-12">
+			<div style="width: 100%;display: block;">
+				<div class="doctor-msg">
+					<div class="headLogo mui-col-xs-3">
+						<img src="images/xu.jpg" />
+					</div>
+					<div class="DoctorMsg mui-col-xs-9">
+						<ul>
+							<li>
+								<h4>徐晓薇</h4>
+								<p>主任医师&nbsp;&nbsp;肿瘤科</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="user-img">
+					<div>已完成</div>
+				</div>
 			</div>
 			<div class="message mui-row">
 				<div class="mui-col-xs-7">
