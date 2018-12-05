@@ -7,6 +7,7 @@
 		<title>选择医生</title>
 		<link rel="stylesheet" type="text/css" href="css/animated.css" />
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/animated.css"/>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 		<style type="text/css">
 			html,
@@ -69,16 +70,18 @@
 				float: right;
 				margin-right: 10px;
 				line-height: 18px;
-				border-radius: 0 0 10px 10px;
+				border-radius: 0 0 14px 14px;
 				font-size: 14px;
 				background: linear-gradient(to right, #FF9C17, #FE6B00);
 				color: #fff;
 				border: none;
-				box-shadow: 0 2px 5px -3px rgba(254,108,0,0.8);
+				box-shadow: 0 2px 5px -3px rgba(254, 108, 0, 0.8);
 			}
-			h4{
+			
+			h4 {
 				font-weight: 500;
 			}
+			
 			ul {
 				padding: 0;
 			}
@@ -87,16 +90,19 @@
 				list-style: none;
 				font-size: 16px;
 			}
-			.message{
+			
+			.message {
 				width: 100%;
 			}
-			.message>div{
+			
+			.message>div {
 				height: 24px;
 				line-height: 24px;
 				font-size: 14px;
 				padding: 0 10px;
 			}
-			.user-img{
+			
+			.user-img {
 				height: 60px;
 				width: 60px;
 				position: absolute;
@@ -108,7 +114,8 @@
 				align-items: center;
 				justify-content: center;
 			}
-			.user-img>div{
+			
+			.user-img>div {
 				text-align: center;
 				padding-left: 16px;
 				padding-bottom: 0px;
@@ -117,11 +124,52 @@
 				font-size: 14px;
 				font-weight: 200;
 			}
+			/*确认对话框*/
+			
+			.mui-popup-button.mui-popup-button-bold {
+				font-weight: 400;
+			}
+			
+			.mui-popup-button {
+				font-size: 14px;
+				color: #666;
+			}
+			
+			.mui-popup-text {
+				height: 48px;
+				line-height: 48px;
+			}
+			
+			.mui-popup-button:first-child {
+				background: linear-gradient(to right, #FF9C17, #FE6B00);
+				color: #fff;
+			}
+			
+			.mui-popup-title {
+				position: relative;
+			}
+			.mui-popup-title::before {
+				content: '';
+				position: absolute;
+				left: 30%;
+				top: -2px;
+				background: url(img/hint.png);
+				background-size: cover;
+				height: 24px;
+				width: 24px;
+			}
+			.mui-popup-backdrop{
+				background: rgba(0,0,0,0.65);
+			}
+			.fadeIn{
+				animation-timing-function:ease-in;
+				animation-duration: .4s;
+			}
 		</style>
 	</head>
 
 	<body>
-		<div class="doctor-card mui-col-sm-12 mui-col-xs-12">
+		<div class="main-card doctor-card mui-col-sm-12 mui-col-xs-12">
 			<div style="width: 100%;display: block;">
 				<div class="doctor-msg">
 					<div class="headLogo mui-col-xs-3">
@@ -136,7 +184,7 @@
 						</ul>
 					</div>
 				</div>
-				<button class="YyButton">取消预约</button>
+				<button class="YyButton cancel-button">取消预约</button>
 			</div>
 			<div class="message mui-row">
 				<div class="mui-col-xs-7">
@@ -146,7 +194,7 @@
 					患者性别：男
 				</div>
 				<div class="mui-col-xs-7">
-					就诊时间：2018-11-21  上午
+					就诊时间：2018-11-21 上午
 				</div>
 				<div class="mui-col-xs-5">
 					挂号金额：￥8.00
@@ -180,7 +228,7 @@
 					患者性别：男
 				</div>
 				<div class="mui-col-xs-7">
-					就诊时间：2018-11-21  上午
+					就诊时间：2018-11-21 上午
 				</div>
 				<div class="mui-col-xs-5">
 					挂号金额：￥8.00
@@ -214,7 +262,7 @@
 					患者性别：男
 				</div>
 				<div class="mui-col-xs-7">
-					就诊时间：2018-11-21  上午
+					就诊时间：2018-11-21 上午
 				</div>
 				<div class="mui-col-xs-5">
 					挂号金额：￥8.00
@@ -224,9 +272,34 @@
 		<div class="bottomNull">
 			———&nbsp;&nbsp;&nbsp;已经到底啦&nbsp;&nbsp;&nbsp;———
 		</div>
+		<!--<div class="user-alert">
+			<div class="mui-popup mui-popup-in" style="display: block;">
+				<div class="mui-popup-inner">
+					<div class="mui-popup-title">Hello MUI</div>
+					<div class="mui-popup-text">MUI是个好框架</div>
+				</div>
+				<div class="mui-popup-buttons"><span class="mui-popup-button">是</span><span class="mui-popup-button mui-popup-button-bold">否</span></div>
+			</div>
+			<div class="mui-popup-backdrop mui-active" style="display: block;"></div>
+		</div>-->
 	</body>
+	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
-		
+		$()
+		$(".cancel-button").click(function() {
+			mui.confirm('您确认要取消预约吗？', '提示', ['确定', '取消'], function(e) {
+				if(e.index == 1) {
+					return ;
+				} else {
+					$(".main-card").append(
+						'<div class="user-img animated fadeIn">'+
+						'<div>已取消</div>'+
+						'</div>'
+					);
+				$(".main-card .YyButton").remove();
+				}
+			})
+		})
 	</script>
 
 </html>

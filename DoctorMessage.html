@@ -27,7 +27,7 @@
 			.header {
 				height: 180px;
 				width: 100%;
-				background: linear-gradient(to right, #E28F1B, #E16205);
+				background: linear-gradient(to right, #ffa019, #fe6b00);
 				display: flex;
 				justify-content: center;
 				flex-direction: column;
@@ -55,7 +55,7 @@
 			.mui-col-xs-4 {
 				text-align: center;
 				box-sizing: border-box;
-				border-right: 1px solid #bbb;
+				border-right: 1px solid #ddd;
 				color: #999;
 			}
 			
@@ -66,8 +66,8 @@
 			}
 			
 			.mui-table-view-cell {
-				height: 56px;
-				line-height: 36px;
+				height: 50px;
+				line-height: 32px;
 			}
 			
 			.money * {
@@ -80,7 +80,8 @@
 			}
 			
 			.timeTitle {
-				line-height: 38px;
+				padding-top: 18px;
+				height: 50px;
 				width: 100%;
 				color: #666;
 				font-size: 16px;
@@ -170,7 +171,7 @@
 				margin-left: 8%;
 				width: 84%;
 				height: 45px;
-				background: linear-gradient(to right, #EF9619, #FE6B00);
+				background: linear-gradient(to right, #ffa019, #fe6b00);
 				border-radius: 22px;
 				font-size: 16px;
 				color: white;
@@ -223,6 +224,18 @@
 				width: 100%;
 				background-color: #fff;
 				transition: all .5s !important;
+			}
+			
+			/*新增*/
+			
+			.mui-table-view:after{
+				bottom: -1px;
+			}
+			.mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after{
+				top: 36%;
+			}
+			.mui-navigate-right:after, .mui-push-right:after{
+				transform: scale(1.4);
 			}
 		</style>
 	</head>

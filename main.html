@@ -7,7 +7,7 @@
 		<title>重庆海吉亚肿瘤医院微信挂号</title>
 		<script src="js/mui.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/animated.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animated.css" />
 		<script type="text/javascript" charset="utf-8">
 			mui.init();
 		</script>
@@ -22,10 +22,10 @@
 				padding: 0;
 				overflow-x: hidden;
 				height: 100%;
+				width: 100%;
+				background-color: #f6f6f6;
 			}
-			body{
-				/*overflow-x: hidden;*/
-			}
+			
 			.mui-slider-item {
 				height: 33vh !important;
 				z-index: 9 !important;
@@ -49,21 +49,22 @@
 				background-color: transparent;
 			}
 			
-			.mui-table-view-cell:after{
+			.mui-table-view-cell:after {
 				left: 15px;
 				right: 15px;
 			}
-			.mui-navigate-right:after, .mui-push-right:after{
+			
+			.mui-navigate-right:after,
+			.mui-push-right:after {
 				font-size: 24px;
 				right: 15px;
 			}
 			
 			.threeProject-bg {
 				background-color: white;
-				width: 120%;
+				width: 100%;
 				height: 30vh;
 				position: absolute;
-				left: -10%;
 				top: 18vh;
 				border-radius: 100%;
 				z-index: 10 !important;
@@ -86,16 +87,20 @@
 				justify-content: center;
 				align-items: center;
 			}
+			
 			.img1 {
 				background: url(img/1.png);
 			}
-			.img2{
+			
+			.img2 {
 				background: url(img/2.png);
 			}
-			.img3{
+			
+			.img3 {
 				background: url(img/3.png);
 			}
-			.button-img{
+			
+			.button-img {
 				height: 8vh;
 				width: 8vh;
 				margin: 0 auto;
@@ -104,42 +109,59 @@
 				background-position: center;
 				background-size: cover;
 			}
+			
 			.user-logo {
 				z-index: 999;
-				height: 15vh;
-				width: 15vh;
+				height: 14vh;
+				width: 14vh;
 				background: url(images/xu.jpg);
-				background-size: cover;
+				background-size: 100%;
+				background-position: center;
 				border-radius: 100%;
 				position: absolute;
-				top: 10.5vh;
-				left: calc(50% - 7.50vh);
-				border: 3px solid orange;
+				top: 12vh;
+				left: calc(50% - 7vh);
+				border: 1px solid white;
 				box-sizing: border-box;
-				box-shadow: 0 0 0 1px #fff;
 			}
 			
 			.user-logo>div {
-				width: 15vh;
+				width: 14vh;
 				text-align: center;
 				position: absolute;
 				bottom: -5vh;
 				font-size: 18px;
 			}
-			.position-reset{
+			
+			.position-reset {
 				position: relative;
 				padding: 0 0;
 				top: 16.5vh;
 			}
+			
 			.mui-table-view:before,
-			.mui-table-view:after
-			{
-				background-color:transparent
+			.mui-table-view:after {
+				background-color: transparent
+			}
+			/*20181205修改*/
+			.mui-table-view-cell{
+				line-height: 46px;
+				padding: 6px 9px 6px 14px;
+			}
+			.mui-table-view-cell img{
+				display: inline-block;
+				height: 28px;
+				width: 28px;
+				position: relative;
+				top: 8px;
+				margin-right:2px ;
 			}
 		</style>
 	</head>
 
-	<body class="animated fadeInUp">
+	<body class="">
+		<div class="threeProject-bg">
+		</div>
 		<div class="mui-slider">
 			<div class="mui-slider-group">
 				<!--第一个内容区容器-->
@@ -152,8 +174,6 @@
 		</div>
 		<div class="user-logo">
 			<div>橘子先生</div>
-		</div>
-		<div class="threeProject-bg">
 		</div>
 		<div class="threeProject">
 			<div class="mui-content">
@@ -178,22 +198,35 @@
 		</div>
 		<ul class="mui-table-view position-reset">
 			<li class="mui-table-view-cell">
-				<a class="mui-navigate-right">放射报告查询</a>
+				<a class="mui-navigate-right">
+					<img src="img/我的就诊人.png"/ >
+					我的就诊人</a>
 			</li>
 			<li class="mui-table-view-cell">
-				<a class="mui-navigate-right">检验报告查询</a>
+				<a class="mui-navigate-right">
+					<img src="img/放射科报告.png"/ >
+					放射报告查询</a>
 			</li>
 			<li class="mui-table-view-cell">
-				<a class="mui-navigate-right">彩超报告查询</a>
+				<a class="mui-navigate-right">
+					<img src="img/检验报告.png"/>
+					检验报告查询</a>
 			</li>
 			<li class="mui-table-view-cell">
-				<a class="mui-navigate-right">病理报告查询</a>
+				<a class="mui-navigate-right">
+					<img src="img/彩超报告.png"/>
+					彩超报告查询</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a class="mui-navigate-right">
+					<img src="img/病理报告.png"/>
+					病理报告查询</a>
 			</li>
 		</ul>
 	</body>
 	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 	<script type="text/javascript">
-		$("#mzgh").click(function(){
+		$("#mzgh").click(function() {
 			window.location.href = "./RegisteredLists.html"
 		})
 	</script>
