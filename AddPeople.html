@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的就诊人</title>
+		<link rel="stylesheet" type="text/css" href="css/animated.css" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+				background-color: #eee;
+			}
+			
+			* {
+				font-size: 16px;
+			}
+			
+			.TopNull {
+				line-height: 40px;
+				width: 100%;
+				text-align: center;
+				font-size: 14px;
+				color: #999;
+			}
+			.TopNull>span{
+				margin: 0 2px;
+			}
+			
+			.doctor-card {
+				margin: 0 auto 12px auto;
+				width: 91%;
+				height: 100px;
+				background-color: #fff;
+				border-radius: 6px;
+			}
+			
+			.headLogo,
+			.DoctorMsg,
+			.YyButton {
+				display: inline-block;
+			}
+			
+			.headLogo>img {
+				margin-left: 8px;
+				position: relative;
+				top: 2px;
+				height: 80px;
+				border-radius: 100%;
+			}
+			
+			.YyButton>button {
+				height: 36px;
+				width: 70px;
+				float: right;
+				margin-right: 10px;
+				line-height: 18px;
+				border-radius: 20px;
+				font-size: 16px;
+				background: linear-gradient(to right, #ffa019, #fe6b00);
+				color: #fff;
+				border: none;
+				box-shadow: 0 2px 4px -1px #ffa019AE;
+			}
+			.OK{
+				position: absolute;
+				top: 37.5px;
+				left: -38px;
+			}
+			
+			ul {
+				padding: 0;
+			}
+			
+			ul li {
+				list-style: none;
+				font-size: 16px;
+			}
+			.icon1{
+				position: relative;
+				left: 0;
+				top: 20px;
+				height: 17px;
+				width: 4px;
+				border-radius: 0px 4px 4px 0 ;
+				background-color: #FF7816;
+				float: left;
+			}
+			.Name{
+				position: relative;
+				top: 20px;
+				font-size: 18px;
+				float: left;
+				margin-left: 8px;
+			}
+			.sfz{
+				position: relative;
+				top: 28px;
+				left: 12px;
+			}
+			.sfz>span{
+				font-size: 14px;
+				color: #656565;
+			}
+			.moren{
+				position: relative;
+				top: 10px;
+				left: 10px;
+				font-size: 13px;
+				color: #FF7D21;
+			}
+			.moren>img{
+				position: relative;
+				top: 2px;
+				margin-right: 10px;
+			}
+			.Change-img{
+				position: absolute;
+				top: 34px;
+				right: 10px;
+			}
+			.OkButton {
+				margin: 40px 0;
+				margin-left: 8%;
+				width: 84%;
+				height: 45px;
+				/*background: linear-gradient(to right,#ffa019 30%, #fe6b00 70%);*/
+				background: linear-gradient(to right, #ffa019 20%, #fe6b00 80%);
+				border-radius: 22px;
+				font-size: 16px;
+				color: white;
+				border: 0;
+				outline: 0;
+				box-shadow: 0 2px 4px -1px #ffa019AE;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="TopNull">
+			您已添加<span>2</span>位，您还可以添加<span>4</span>位
+		</div>
+		<div class="doctor-card mui-col-sm-12 mui-col-xs-12">
+			<div class="Change-img"><img src="img/change.png" width="34" height="34"/></div>
+			<div style="display: block;">
+				<div class="icon1"></div>
+				<div class="Name">洋芋</div>
+			</div>
+			<br />
+			<div class="sfz">
+				<span>身份证号：500229********0019</span>
+			</div>
+			<br />
+			<div class="moren"><img src="img/ok.png" width="14" height="14"/>默认就诊人</div>
+		</div>
+		<div class="doctor-card mui-col-sm-12 mui-col-xs-12">
+			<div class="Change-img"><img src="img/change.png" width="34" height="34"/></div>
+			<div style="display: block;">
+				<div class="icon1"></div>
+				<div class="Name">洋芋</div>
+			</div>
+			<br />
+			<div class="sfz">
+				<span>身份证号：500229********0019</span>
+			</div>
+			<br />
+			<!--<div class="moren"><img src="img/ok.png" width="14" height="14"/>设为默认联系人</div>-->
+		</div>
+		<button class="OkButton">
+			添加就诊人
+		</button>
+	</body>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(".OK>img").click(function(){
+			$(".OK>img").attr("src","img/active-no.png");
+			$(this).attr("src","img/active.png");
+		})
+		$(".OkButton").click(function() {
+			window.location.href = "./AddPeople-New.html"
+		});
+	</script>
+
+</html>

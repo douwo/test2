@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>添加就诊人信息</title>
+		<link rel="stylesheet" type="text/css" href="css/animated.css" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			
+			* {
+				color: #666;
+				font-size: 16px;
+			}
+			
+			input::-webkit-input-placeholder {
+				font-size: 14px;
+				color: #9f9f9f;
+			}
+			
+			input::-moz-placeholder {
+				/* Mozilla Firefox 19+ */
+				color: #9f9f9f;
+				font-size: 14px;
+			}
+			
+			input:-moz-placeholder {
+				/* Mozilla Firefox 4 to 18 */
+				color: #9f9f9f;
+				font-size: 14px;
+			}
+			
+			input:-ms-input-placeholder {
+				/* Internet Explorer 10-11 */
+				color: #9f9f9f;
+				font-size: 14px;
+			}
+			
+			.mui-checkbox input[type=checkbox]:before,
+			.mui-radio input[type=radio]:before {
+				font-size: 20px;
+				position: relative;
+				top: 4px;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 10px;
+			}
+			
+			.mui-input-group>.mui-input-row {
+				width: 95%;
+			}
+			
+			.mui-input-row label {
+				width: 25%;
+				padding: 16px 15px;
+			}
+			
+			.mui-input-row label~input {
+				height: 48px;
+				width: 75%;
+			}
+			
+			.mui-checkbox.mui-left input[type=checkbox],
+			.mui-radio.mui-left input[type=radio] {
+				left: 0;
+			}
+			
+			.mui-checkbox.mui-left label,
+			.mui-radio.mui-left label {
+				padding-right: 32px;
+				padding-left: 27px;
+			}
+			
+			.mui-input-group:before,
+			.mui-input-group:after {
+				background-color: transparent
+			}
+			
+			.mui-checkbox input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				color: orange;
+			}
+			
+			.mui-input-group .mui-input-row {
+				height: 45px;
+				line-height: 45px;
+			}
+			/* 分割线重置 */
+			
+			.mui-table-view-cell:after {
+				left: 15px;
+				right: 15px;
+			}
+			
+			.mui-table-view:before,
+			.mui-table-view:after {
+				background-color: transparent
+			}
+			
+			.user-right {
+				float: right;
+			}
+			
+			.mui-table-view>li {
+				height: 54px;
+				line-height: 34px;
+			}
+			
+			.mui-table-view>.mui-table-view-cell>img {
+				position: relative;
+				top: 5px;
+				height: 20px;
+				margin-right: 5px;
+			}
+			
+			.bottomNull {
+				line-height: 60px;
+				width: 100%;
+				text-align: center;
+				font-size: 14px;
+				color: #999;
+			}
+			
+			ul>li>span:first-child {
+				color: #333;
+				font-weight: 400;
+			}
+			
+			.money {
+				color: darkorange;
+			}
+			
+			.timeTitle {
+				margin-top: 18px;
+				line-height: 38px;
+				width: 100%;
+				color: #666;
+				font-size: 16px;
+				padding-left: 15px;
+			}
+			
+			.timeTitle>div {
+				line-height: 30px;
+				margin-left: 10px;
+			}
+			
+			.OkButton {
+				margin: 30px 0;
+				margin-left: 8%;
+				width: 84%;
+				height: 45px;
+				background: linear-gradient(to right, #EF9619, #FE6B00);
+				border-radius: 22px;
+				font-size: 16px;
+				color: white;
+			}
+			
+			.mui-input-row .mui-switch {
+				float: right;
+				margin-top: 13px;
+				margin-right: 4px;
+			}
+			
+			.mui-switch {
+				border: 2px solid #FF7816;
+				height: 22px;
+			}
+			
+			.mui-switch:before {
+				top: -13px;
+				color: #FF7816;
+			}
+			
+			.mui-switch .mui-switch-handle {
+				top: -5px;
+				box-shadow: 0 0px 8px rgba(255, 120, 22, .7);
+				left: 0px;
+			}
+			
+			.mui-input-group .mui-input-row:nth-last-child(1):after {
+				background: transparent;	
+			}
+			.mui-switch.mui-active{
+				border-color: #FF7816;
+				background-color: #FF7816;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form class="mui-input-group">
+			<div class="mui-input-row">
+				<label>姓&nbsp;&nbsp;&nbsp;&nbsp;名</label>
+				<input type="text" class="mui-input-clear" placeholder="请输入真实姓名" value="">
+			</div>
+			<div class="mui-input-row">
+				<label>性&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+				<div class="mui-input-row mui-radio mui-left" style="display: inline-block;">
+					<input name="radio1" type="radio" checked="">
+					<label>男</label>
+				</div>
+				<div class="mui-input-row mui-radio mui-left" style="display: inline-block;">
+					<input name="radio1" type="radio">
+					<label>女</label>
+				</div>
+			</div>
+			<div class="mui-input-row">
+				<label>身份证</label>
+				<input type="number" class="mui-input-clear" placeholder="请输入身份证号" value="">
+			</div>
+			<div class="mui-input-row">
+				<label>手机号</label>
+				<input type="number" class="mui-input-clear" placeholder="请输入手机号" value="">
+			</div>
+			<div class="mui-input-row">
+				<label style="width: 50%;">设为默认就诊人</label>
+				<div class="mui-switch">
+					<div class="mui-switch-handle"></div>
+				</div>
+			</div>
+		</form>
+		<button class="OkButton">
+			保&nbsp;存
+			<!--返回选择就诊人列表-->
+		</button>
+	</body>
+	<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(".OkButton").click(function() {
+			window.location.href = "AddPeople.html"
+		});
+		mui("#mySwitch").switch().toggle();
+	</script>
+
+</html>

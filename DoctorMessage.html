@@ -7,34 +7,39 @@
 		<title>医生排班</title>
 		<link rel="stylesheet" type="text/css" href="css/animated.css" />
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="css/a-reset.css" />
-		<link rel="stylesheet" type="text/css" href="css/mui.poppicker.css" />
-		<link rel="stylesheet" type="text/css" href="css/mui.dtpicker.css" />
-		<link rel="stylesheet" type="text/css" href="css/mui.picker.css" />
 		<style type="text/css">
 			html,
 			body {
 				margin: 0;
 				padding: 0;
-				background-color: #eee;
+				background-color: #f6f6f6;
 			}
 			
 			* {
-				/*color: #333;*/
 				font-size: 16px;
 			}
 			
+			ul {
+				margin: 8px 0;
+			}
+			
+			.mui-table-view:before,
+			.mui-table-view:after {
+				background-color: transparent;
+			}
+			
 			.header {
-				height: 180px;
+				height: 150px;
 				width: 100%;
-				background: linear-gradient(to right, #ffa019, #fe6b00);
+				background: linear-gradient(135deg , #ffa019, #fe6b00);
 				display: flex;
 				justify-content: center;
 				flex-direction: column;
 			}
 			
 			.header img {
-				height: 110px;
+				height: 100px;
+				width: 100px;
 				border-radius: 100%;
 				margin: 5px 0;
 			}
@@ -42,7 +47,7 @@
 			.header h3 {
 				margin: 0 auto;
 				color: white;
-				font-size: 22px;
+				font-size: 16px;
 				font-weight: 300;
 			}
 			
@@ -56,18 +61,42 @@
 				text-align: center;
 				box-sizing: border-box;
 				border-right: 1px solid #ddd;
-				color: #999;
+				color: #656565;
+				font-size: 14px;
+			}
+			
+			.mui-col-xs-4 span {
+				clear: left;
+				display: block;
+				padding-right: 8px;
+				color: #656565;
+				font-size: 14px;
+			}
+			
+			.mui-col-xs-4:nth-child(1) {
+				float: left;
+				padding-left: 15px;
+			}
+			
+			.mui-col-xs-4:nth-child(1)>h4 {
+				display: block;
+				float: left;
+			}
+			
+			.mui-col-xs-4:nth-child(3) {
+				text-align: right;
+				padding-right: 15px;
 			}
 			
 			.mui-col-xs-4>h4 {
-				font-weight: 400;
-				font-size: 20px;
+				font-weight: 500;
+				font-size: 18px;
 				color: #333;
 			}
 			
 			.mui-table-view-cell {
-				height: 50px;
-				line-height: 32px;
+				height: 56px;
+				line-height: 36px;
 			}
 			
 			.money * {
@@ -76,26 +105,36 @@
 			
 			.money span {
 				float: right;
-				color: orange;
+				color: #fe6b00;
+			}
+			
+			.money .mui-table-view:after {
+				background-color: transparent !important;
 			}
 			
 			.timeTitle {
-				padding-top: 18px;
-				height: 50px;
+				height: 55px;
 				width: 100%;
-				color: #666;
+				color: #656565;
 				font-size: 16px;
+				padding-top: 20px;
+				padding-left: 3px;
 			}
 			
 			.timeTitle>div {
+				position: relative;
+				top: 2px;
+				display: inline-block;
 				line-height: 30px;
 				margin-left: 10px;
+				margin-right: -40px;
+				opacity: 0.6;
 			}
 			
 			.sevenDay {
 				background-color: white;
 				padding: 1px 0;
-				border-bottom: 1px solid #ccc;
+				box-shadow: 0 3px 6px -4px #ddd;
 			}
 			
 			.sevenDay>ul {
@@ -111,15 +150,15 @@
 				flex-grow: 1;
 				border-radius: 100%;
 				padding: 2px;
-				transition: all .3s;
 				justify-content: center;
 				align-items: center;
-				flex-direction: column
+				flex-direction: column;
 			}
 			
 			.sevenDay li.active {
-				background: linear-gradient(to right, #E28F1B, #E16205);
 				color: white;
+				background: linear-gradient(to right, #ffa019, #fe6b00);
+				
 			}
 			
 			.sevenDay li>h4 {
@@ -131,15 +170,11 @@
 				font-size: 14px;
 			}
 			
-			.project {
-				transition: all 0.1s;
-			}
-			
 			.time {
 				height: 40px;
 				line-height: 38px;
-				color: #666;
-				border: 1px solid #666;
+				color: #656565;
+				border: 1px solid #656565;
 				background: transparent;
 				border-radius: 18px;
 				text-align: center;
@@ -147,13 +182,17 @@
 				margin: 12px 8px 0px 8px;
 			}
 			
-			.timeLists {
-				min-height: 200px;
-			}
-			
 			.time.active {
 				color: orange;
 				border: 1px solid orange;
+			}
+			
+			.goHome {
+				position: absolute;
+				right: 0px;
+				width: auto;
+				height: auto;
+				top: 10px;
 			}
 			
 			.footer {
@@ -164,6 +203,7 @@
 				height: 60px;
 				width: 100%;
 				background-color: white;
+				box-shadow: 0 -3px 10px -5px #bbb;
 			}
 			
 			.footer>.OkButton {
@@ -171,71 +211,83 @@
 				margin-left: 8%;
 				width: 84%;
 				height: 45px;
-				background: linear-gradient(to right, #ffa019, #fe6b00);
+				/*background: linear-gradient(to right,#ffa019 30%, #fe6b00 70%);*/
+				background: linear-gradient(to right, #ffa019 20%, #fe6b00 80%);
 				border-radius: 22px;
 				font-size: 16px;
 				color: white;
 				border: 0;
 				outline: 0;
-				box-shadow: 0 2px 5px -3px #666;
-			}
-			
-			.mui-btn-blue,
-			.mui-btn-primary,
-			input[type=submit] {
-				color: orange;
-				border: 1px solid orange;
-				background-color: transparent;
-			}
-			
-			.mui-checkbox.mui-left label {
-				padding-left: 40px;
-			}
-			
-			.mui-checkbox input[type=checkbox] {
-				top: 7px;
-				left: 10px !important;
-			}
-			
-			.mui-checkbox input[type=checkbox]:before,
-			.mui-radio input[type=radio]:before {
-				font-size: 24px;
-			}
-			
-			.mui-checkbox input[type=checkbox]:checked:before,
-			.mui-radio input[type=radio]:checked:before {
-				color: orange;
+				box-shadow: 0 2px 4px -1px #ffa019AE;
 			}
 			
 			.tiaoyue {
 				position: absolute;
-				top: calc(100%);
+				/*top: calc(0);*/
+				bottom: calc(100%);
 				height: 100%;
 				width: 100%;
-				background-color: rgba(0, 0, 0, 0.4);
+				background-color: rgba(0, 0, 0, 0.5);
 				transition: all .5s !important;
-				display: none;
+				display: block;
 			}
 			
 			.tiaoyue-content {
 				position: absolute;
-				bottom: -280px;
+				/*bottom: -280px;*/
 				height: 280px;
 				width: 100%;
 				background-color: #fff;
 				transition: all .5s !important;
+				z-index: 111;
+				bottom: 0;
 			}
 			
-			/*新增*/
+			.tiaoyue-content>h4 {
+				/*box-shadow: 0 2px 10px -6px #999;*/
+				font-size: 16px;
+				line-height: 20px;
+				color: #666;
+				text-align: center;
+				padding: 10px 0;
+				font-weight: 400;
+				position: relative;
+				border-bottom: 1px solid #dadada;
+			}
 			
-			.mui-table-view:after{
-				bottom: -1px;
+			.tiaoyue .mui-table-view-cell {
+				/*padding-left: 50px;*/
 			}
-			.mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after{
-				top: 36%;
+			
+			.tiaoyue .mui-table-view-cell:after {
+				left: 50px;
 			}
-			.mui-navigate-right:after, .mui-push-right:after{
-				transform: scale(1.4);
+			
+			.number {
+				background-image: url(img/number-bg.png);
+				background-size: cover;
+				height: 22px;
+				width: 22px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 14px;
+				color: white;
+				padding-bottom: 4px;
+				margin-right: 12px;
+				float: left;
+				position: relative;
+				top: 9px;
+			}
+			
+			.mui-table-view:after {
+				left: 50px;
+				background-color: #c8c7cc;
+			}
+			
+			.mui-icon-closeempty:before {
+				position: relative;
+				bottom: 4px;
 			}
 		</style>
 	</head>
@@ -248,14 +300,20 @@
 			<h3>徐晓薇</h3>
 		</div>
 		<div class="three mui-row">
-			<div class="mui-col-xs-4">
-				<h4>肿瘤科</h4> 所属科室
+			<div class="mui-col-xs-4" style="text-align: left;">
+				<div style="width: auto;display: inline">
+					<span style="text-align: center;display: inline-block;margin-top: 6px;"><font style="font-weight: 500;font-size: 18px;color: #333;position: relative;bottom: 2px;">肿瘤科</font>
+					<br />
+					所属科室
+					</span>
+				</div>
 			</div>
 			<div class="mui-col-xs-4">
 				<h4>主任医师</h4> 医生职称
 			</div>
 			<div class="mui-col-xs-4">
-				<h4>门诊二楼</h4> 就诊地址
+				<h4>门诊二楼</h4>
+				<span>就诊地址</span>
 			</div>
 		</div>
 		<div class="money">
@@ -267,42 +325,80 @@
 			</ul>
 		</div>
 		<div class="timeTitle">
-			<div class="mui-icon mui-icon-info"></div>
-			时间
+			<div><img src="img/timeIcon.png" width="25%" height="25%" /></div>
+			请选择预约时间
 		</div>
-		<div class="timeLists">
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<a class="mui-navigate-right birth_option" style="color: #666;">请选择预约时间</a>
+		<div class="sevenDay">
+			<ul>
+				<li class="project active">
+					<h4>今日</h4>
+					<span>11.18</span>
+				</li>
+				<li class="project">
+					<h4>周一</h4>
+					<span>11.19</span>
+				</li>
+				<li class="project">
+					<h4>周二</h4>
+					<span>11.20</span>
+				</li>
+				<li class="project">
+					<h4>周三</h4>
+					<span>11.21</span>
+				</li>
+				<li class="project">
+					<h4>周四</h4>
+					<span>11.22</span>
+				</li>
+				<li class="project">
+					<h4>周五</h4>
+					<span>11.23</span>
+				</li>
+				<li class="project">
+					<h4>周六</h4>
+					<span>11.24</span>
 				</li>
 			</ul>
-			<div class="mui-input-row mui-checkbox mui-left">
-				<label>我已经阅读并同意<span class="open" style="color: dodgerblue;">《预约须知条款》</span></label>
-				<input name="checkbox1" value="Item 1" type="checkbox" onclick="openTiaoyue()">
+		</div>
+		<div class="timeLists mui-row">
+			<div class=" mui-col-xs-3">
+				<div class="time">08:00</div>
+			</div>
+			<div class=" mui-col-xs-3">
+				<div class="time">10:00</div>
+			</div>
+			<div class=" mui-col-xs-3">
+				<div class="time">14:00</div>
+			</div>
+			<div class=" mui-col-xs-3">
+				<div class="time">16:00</div>
 			</div>
 		</div>
+		<section class="goHome"><img src="img/home.png" width="60%" height="60%" /></section>
 		<div class="footer">
 			<button class="OkButton">
 			立即预约
-		</button>
+			</button>
 		</div>
 		<div class="tiaoyue">
 			<div class="tiaoyue-content">
-				<h4 style="color: #999;text-align: center;padding: 10px 0;font-weight: 400;position: relative;">预约条款
+				<h4>《预约须知条款》
 				<span class="mui-icon mui-icon-closeempty close" style="position: absolute;float: right;bottom: 2px;right: 4px;font-size: 34px;" onclick="closeTiaoyue()"></span>
 				</h4>
 				<ul class="mui-table-view">
-					<li class="mui-table-view-cell">一、内容</li>
-					<li class="mui-table-view-cell">二、内容</li>
-					<li class="mui-table-view-cell">三、内容</li>
+					<li class="mui-table-view-cell">
+						<div class="number">1</div>请提前一天挂号！
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="number">2</div>就诊前一天22：00后不能退费。
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="number">3</div>若有超声、空腹项目，请勿吃早餐。
+					</li>
 				</ul>
 			</div>
 		</div>
 		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-		<script src="js/mui.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/mui.dtpicker.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/mui.poppicker.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/mui.picker.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			window.onload = function() {
 				$(".project>.today").hide();
@@ -315,34 +411,28 @@
 				$(".time").removeClass("active");
 				$(this).addClass("active");
 			})
-			$(".OkButton").click(function() {
-				window.location.href = "RegisteredMsg.html"
-			})
-
-			$('.birth_option').click(function() {
-				var dtpicker = new mui.DtPicker({
-					type: "date", //设置日历初始视图模式
-					beginDate: new Date(2018, 10, 18), //设置开始日期
-					endDate: new Date(2018, 10, 24) //设置开始日期
+			
+			$(".time").click(function() {
+				$(".tiaoyue").css("display", "block");
+				$(".tiaoyue").css("top", "0");
+				setTimeout(function() {
+					$(".tiaoyue-content").css("bottom", "0");
 				});
-				dtpicker.show(function(selectItems) {
-					$(".birth_option").text(selectItems.text)
-					/*改变按钮值*/
-				})
+				$(".time").unbind("click");
+				$(".time").bind("click",function(){
+					$(".time").removeClass("active");
+					$(this).addClass("active");
+				});
 			})
-			function openTiaoyue(){
-				$(".tiaoyue").css("display","block");
-				$(".tiaoyue").css("top","0");
-				setTimeout(function(){
-					$(".tiaoyue-content").css("bottom","0");
-				})
+			function closeTiaoyue() {
+				$(".tiaoyue-content").css("bottom", "-280px");
+				setTimeout(function() {
+					$(".tiaoyue").css("display", "none");
+				}, 400)
 			}
-			function closeTiaoyue(){
-				$(".tiaoyue-content").css("bottom","-280px");
-				setTimeout(function(){
-					$(".tiaoyue").css("display","none");
-				},400)
-			}
+			$(".OkButton").click(function(){
+				window.location.href = "RegisteredMsg.html"
+			});
 		</script>
 	</body>
 
